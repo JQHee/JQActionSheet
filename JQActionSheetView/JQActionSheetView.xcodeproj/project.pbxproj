@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5CB14B032B639CA13C8D2346 /* Pods_JQActionSheetView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C3E15EA96CB92EF7EF1FFA /* Pods_JQActionSheetView.framework */; };
+		66CDCEA01EFEE1300029BE0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDCE9F1EFEE1300029BE0E /* AppDelegate.swift */; };
+		66CDCEA21EFEE1300029BE0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDCEA11EFEE1300029BE0E /* ViewController.swift */; };
+		66CDCEA51EFEE1300029BE0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CDCEA31EFEE1300029BE0E /* Main.storyboard */; };
+		66CDCEA71EFEE1300029BE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66CDCEA61EFEE1300029BE0E /* Assets.xcassets */; };
+		66CDCEAA1EFEE1300029BE0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66CDCEA81EFEE1300029BE0E /* LaunchScreen.storyboard */; };
+		66CDCEB51EFEE1300029BE0E /* JQActionSheetViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDCEB41EFEE1300029BE0E /* JQActionSheetViewTests.swift */; };
+		66CDCEC01EFEE1300029BE0E /* JQActionSheetViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDCEBF1EFEE1300029BE0E /* JQActionSheetViewUITests.swift */; };
+		66CDCED01EFEE3A50029BE0E /* JQActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDCECE1EFEE3A50029BE0E /* JQActionSheetCell.swift */; };
+		66CDCED11EFEE3A50029BE0E /* JQActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDCECF1EFEE3A50029BE0E /* JQActionSheetView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		66CDCEB11EFEE1300029BE0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66CDCE941EFEE1300029BE0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66CDCE9B1EFEE1300029BE0E;
+			remoteInfo = JQActionSheetView;
+		};
+		66CDCEBC1EFEE1300029BE0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 66CDCE941EFEE1300029BE0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66CDCE9B1EFEE1300029BE0E;
+			remoteInfo = JQActionSheetView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04C3E15EA96CB92EF7EF1FFA /* Pods_JQActionSheetView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JQActionSheetView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6575D716F615170F5BBAA8B0 /* Pods-JQActionSheetView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JQActionSheetView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JQActionSheetView/Pods-JQActionSheetView.debug.xcconfig"; sourceTree = "<group>"; };
+		66CDCE9C1EFEE1300029BE0E /* JQActionSheetView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JQActionSheetView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		66CDCE9F1EFEE1300029BE0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		66CDCEA11EFEE1300029BE0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		66CDCEA41EFEE1300029BE0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		66CDCEA61EFEE1300029BE0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66CDCEA91EFEE1300029BE0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66CDCEAB1EFEE1300029BE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66CDCEB01EFEE1300029BE0E /* JQActionSheetViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JQActionSheetViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66CDCEB41EFEE1300029BE0E /* JQActionSheetViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQActionSheetViewTests.swift; sourceTree = "<group>"; };
+		66CDCEB61EFEE1300029BE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66CDCEBB1EFEE1300029BE0E /* JQActionSheetViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JQActionSheetViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		66CDCEBF1EFEE1300029BE0E /* JQActionSheetViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JQActionSheetViewUITests.swift; sourceTree = "<group>"; };
+		66CDCEC11EFEE1300029BE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66CDCECE1EFEE3A50029BE0E /* JQActionSheetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQActionSheetCell.swift; sourceTree = "<group>"; };
+		66CDCECF1EFEE3A50029BE0E /* JQActionSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JQActionSheetView.swift; sourceTree = "<group>"; };
+		6DEEE9BF95E51F822566734A /* Pods-JQActionSheetView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JQActionSheetView.release.xcconfig"; path = "Pods/Target Support Files/Pods-JQActionSheetView/Pods-JQActionSheetView.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		66CDCE991EFEE1300029BE0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CB14B032B639CA13C8D2346 /* Pods_JQActionSheetView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CDCEAD1EFEE1300029BE0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CDCEB81EFEE1300029BE0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66CDCE931EFEE1300029BE0E = {
+			isa = PBXGroup;
+			children = (
+				66CDCE9E1EFEE1300029BE0E /* JQActionSheetView */,
+				66CDCEB31EFEE1300029BE0E /* JQActionSheetViewTests */,
+				66CDCEBE1EFEE1300029BE0E /* JQActionSheetViewUITests */,
+				66CDCE9D1EFEE1300029BE0E /* Products */,
+				ECA18A4179FB718EABC1C0C0 /* Pods */,
+				EDF2E3A08757F00F9E513429 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		66CDCE9D1EFEE1300029BE0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				66CDCE9C1EFEE1300029BE0E /* JQActionSheetView.app */,
+				66CDCEB01EFEE1300029BE0E /* JQActionSheetViewTests.xctest */,
+				66CDCEBB1EFEE1300029BE0E /* JQActionSheetViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		66CDCE9E1EFEE1300029BE0E /* JQActionSheetView */ = {
+			isa = PBXGroup;
+			children = (
+				66CDCECD1EFEE1430029BE0E /* JQActionSheetView */,
+				66CDCE9F1EFEE1300029BE0E /* AppDelegate.swift */,
+				66CDCEA11EFEE1300029BE0E /* ViewController.swift */,
+				66CDCEA31EFEE1300029BE0E /* Main.storyboard */,
+				66CDCEA61EFEE1300029BE0E /* Assets.xcassets */,
+				66CDCEA81EFEE1300029BE0E /* LaunchScreen.storyboard */,
+				66CDCEAB1EFEE1300029BE0E /* Info.plist */,
+			);
+			path = JQActionSheetView;
+			sourceTree = "<group>";
+		};
+		66CDCEB31EFEE1300029BE0E /* JQActionSheetViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				66CDCEB41EFEE1300029BE0E /* JQActionSheetViewTests.swift */,
+				66CDCEB61EFEE1300029BE0E /* Info.plist */,
+			);
+			path = JQActionSheetViewTests;
+			sourceTree = "<group>";
+		};
+		66CDCEBE1EFEE1300029BE0E /* JQActionSheetViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				66CDCEBF1EFEE1300029BE0E /* JQActionSheetViewUITests.swift */,
+				66CDCEC11EFEE1300029BE0E /* Info.plist */,
+			);
+			path = JQActionSheetViewUITests;
+			sourceTree = "<group>";
+		};
+		66CDCECD1EFEE1430029BE0E /* JQActionSheetView */ = {
+			isa = PBXGroup;
+			children = (
+				66CDCECE1EFEE3A50029BE0E /* JQActionSheetCell.swift */,
+				66CDCECF1EFEE3A50029BE0E /* JQActionSheetView.swift */,
+			);
+			path = JQActionSheetView;
+			sourceTree = "<group>";
+		};
+		ECA18A4179FB718EABC1C0C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6575D716F615170F5BBAA8B0 /* Pods-JQActionSheetView.debug.xcconfig */,
+				6DEEE9BF95E51F822566734A /* Pods-JQActionSheetView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EDF2E3A08757F00F9E513429 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04C3E15EA96CB92EF7EF1FFA /* Pods_JQActionSheetView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66CDCE9B1EFEE1300029BE0E /* JQActionSheetView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66CDCEC41EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetView" */;
+			buildPhases = (
+				C93FDFB7002FF43E60A03EB8 /* [CP] Check Pods Manifest.lock */,
+				66CDCE981EFEE1300029BE0E /* Sources */,
+				66CDCE991EFEE1300029BE0E /* Frameworks */,
+				66CDCE9A1EFEE1300029BE0E /* Resources */,
+				D25B6EB87DAB4885942055DA /* [CP] Embed Pods Frameworks */,
+				03114800B8A17EFE88EE6B5A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JQActionSheetView;
+			productName = JQActionSheetView;
+			productReference = 66CDCE9C1EFEE1300029BE0E /* JQActionSheetView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		66CDCEAF1EFEE1300029BE0E /* JQActionSheetViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66CDCEC71EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetViewTests" */;
+			buildPhases = (
+				66CDCEAC1EFEE1300029BE0E /* Sources */,
+				66CDCEAD1EFEE1300029BE0E /* Frameworks */,
+				66CDCEAE1EFEE1300029BE0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66CDCEB21EFEE1300029BE0E /* PBXTargetDependency */,
+			);
+			name = JQActionSheetViewTests;
+			productName = JQActionSheetViewTests;
+			productReference = 66CDCEB01EFEE1300029BE0E /* JQActionSheetViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		66CDCEBA1EFEE1300029BE0E /* JQActionSheetViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66CDCECA1EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetViewUITests" */;
+			buildPhases = (
+				66CDCEB71EFEE1300029BE0E /* Sources */,
+				66CDCEB81EFEE1300029BE0E /* Frameworks */,
+				66CDCEB91EFEE1300029BE0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				66CDCEBD1EFEE1300029BE0E /* PBXTargetDependency */,
+			);
+			name = JQActionSheetViewUITests;
+			productName = JQActionSheetViewUITests;
+			productReference = 66CDCEBB1EFEE1300029BE0E /* JQActionSheetViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		66CDCE941EFEE1300029BE0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = HJQ;
+				TargetAttributes = {
+					66CDCE9B1EFEE1300029BE0E = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					66CDCEAF1EFEE1300029BE0E = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66CDCE9B1EFEE1300029BE0E;
+					};
+					66CDCEBA1EFEE1300029BE0E = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 66CDCE9B1EFEE1300029BE0E;
+					};
+				};
+			};
+			buildConfigurationList = 66CDCE971EFEE1300029BE0E /* Build configuration list for PBXProject "JQActionSheetView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 66CDCE931EFEE1300029BE0E;
+			productRefGroup = 66CDCE9D1EFEE1300029BE0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				66CDCE9B1EFEE1300029BE0E /* JQActionSheetView */,
+				66CDCEAF1EFEE1300029BE0E /* JQActionSheetViewTests */,
+				66CDCEBA1EFEE1300029BE0E /* JQActionSheetViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		66CDCE9A1EFEE1300029BE0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CDCEAA1EFEE1300029BE0E /* LaunchScreen.storyboard in Resources */,
+				66CDCEA71EFEE1300029BE0E /* Assets.xcassets in Resources */,
+				66CDCEA51EFEE1300029BE0E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CDCEAE1EFEE1300029BE0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CDCEB91EFEE1300029BE0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03114800B8A17EFE88EE6B5A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JQActionSheetView/Pods-JQActionSheetView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C93FDFB7002FF43E60A03EB8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D25B6EB87DAB4885942055DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JQActionSheetView/Pods-JQActionSheetView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		66CDCE981EFEE1300029BE0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CDCEA21EFEE1300029BE0E /* ViewController.swift in Sources */,
+				66CDCEA01EFEE1300029BE0E /* AppDelegate.swift in Sources */,
+				66CDCED01EFEE3A50029BE0E /* JQActionSheetCell.swift in Sources */,
+				66CDCED11EFEE3A50029BE0E /* JQActionSheetView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CDCEAC1EFEE1300029BE0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CDCEB51EFEE1300029BE0E /* JQActionSheetViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66CDCEB71EFEE1300029BE0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66CDCEC01EFEE1300029BE0E /* JQActionSheetViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		66CDCEB21EFEE1300029BE0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66CDCE9B1EFEE1300029BE0E /* JQActionSheetView */;
+			targetProxy = 66CDCEB11EFEE1300029BE0E /* PBXContainerItemProxy */;
+		};
+		66CDCEBD1EFEE1300029BE0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66CDCE9B1EFEE1300029BE0E /* JQActionSheetView */;
+			targetProxy = 66CDCEBC1EFEE1300029BE0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		66CDCEA31EFEE1300029BE0E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66CDCEA41EFEE1300029BE0E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		66CDCEA81EFEE1300029BE0E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66CDCEA91EFEE1300029BE0E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		66CDCEC21EFEE1300029BE0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		66CDCEC31EFEE1300029BE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		66CDCEC51EFEE1300029BE0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6575D716F615170F5BBAA8B0 /* Pods-JQActionSheetView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JQActionSheetView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQActionSheetView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		66CDCEC61EFEE1300029BE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DEEE9BF95E51F822566734A /* Pods-JQActionSheetView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = JQActionSheetView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQActionSheetView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		66CDCEC81EFEE1300029BE0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JQActionSheetViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQActionSheetViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JQActionSheetView.app/JQActionSheetView";
+			};
+			name = Debug;
+		};
+		66CDCEC91EFEE1300029BE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JQActionSheetViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQActionSheetViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JQActionSheetView.app/JQActionSheetView";
+			};
+			name = Release;
+		};
+		66CDCECB1EFEE1300029BE0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = JQActionSheetViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQActionSheetViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = JQActionSheetView;
+			};
+			name = Debug;
+		};
+		66CDCECC1EFEE1300029BE0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = JQActionSheetViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gxysb.JQActionSheetViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = JQActionSheetView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66CDCE971EFEE1300029BE0E /* Build configuration list for PBXProject "JQActionSheetView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66CDCEC21EFEE1300029BE0E /* Debug */,
+				66CDCEC31EFEE1300029BE0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66CDCEC41EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66CDCEC51EFEE1300029BE0E /* Debug */,
+				66CDCEC61EFEE1300029BE0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66CDCEC71EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66CDCEC81EFEE1300029BE0E /* Debug */,
+				66CDCEC91EFEE1300029BE0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		66CDCECA1EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66CDCECB1EFEE1300029BE0E /* Debug */,
+				66CDCECC1EFEE1300029BE0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66CDCE941EFEE1300029BE0E /* Project object */;
+}
