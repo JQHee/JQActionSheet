@@ -8,20 +8,21 @@
 
 import UIKit
 
-class JQActionSheetCell: UITableViewCell {
+public class JQActionSheetCell: UITableViewCell {
     
     
-    lazy var titleLabel: UILabel = {
+    public lazy var titleLabel: UILabel = {
         let label: UILabel = UILabel.init()
         label.textAlignment = .center
         return label
     }()
     
+    // MARK: - private method
     private func setupUI() {
         contentView.addSubview(titleLabel)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         titleLabel.frame = self.bounds
     }
@@ -31,16 +32,16 @@ class JQActionSheetCell: UITableViewCell {
         setupUI()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
+    override open func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

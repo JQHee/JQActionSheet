@@ -55,29 +55,18 @@ extension ViewController: UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            let option1 = JQSelectViewInfo(title: "退出", color: UIColor.green)
-            JQActionSheetView.show(title: "是否退出登录？", options: [option1], cancelTitle: nil, selectCallBack: { index in
-                print(index)
-            }) {
-                print("取消了")
-            }
             break
         case 1:
-            let option1 = JQSelectViewInfo(title: "语音通话", color: nil)
-            let option2 = JQSelectViewInfo(title: "视频聊天", color: nil)
-            JQActionSheetView.show(title: "请选择聊天方式？", options: [option1, option2], cancelTitle: nil, selectCallBack: { index in
-                print(index)
-            })
+
             break
         case 2:
-            let option1 = JQSelectViewInfo(title: "选择1", color: UIColor.black)
-            let option2 = JQSelectViewInfo(title: "选择2", color: UIColor.orange)
-            let option3 = JQSelectViewInfo(title: "选择3", color: UIColor.brown)
-            let cancel = JQSelectViewInfo(title: "取消", color: UIColor.cyan)
-            
-            JQActionSheetView.show(title: "请选择聊天方式？", options: [option1, option2, option3], cancelTitle: cancel, selectCallBack: { index in
-                print(index)
-            })
+            let option1 = JQSelectViewInfo(title: "我是标题", color: UIColor.black, font: UIFont.systemFont(ofSize: 14), isTitle: true)
+            let option2 = JQSelectViewInfo(title: "选择2", color: UIColor.orange, font: UIFont.systemFont(ofSize: 14))
+            let option3 = JQSelectViewInfo(title: "选择3", color: UIColor.brown, font: UIFont.systemFont(ofSize: 14))
+            let cancel = JQSelectViewInfo(title: "取消", color: UIColor.cyan, font: UIFont.systemFont(ofSize: 14))
+        JQActionSheetView.init(options: [option1, option2, option3], cancelTitle: cancel, selectCallBack: { (index) in
+            print(index)
+        })
             break
         default:
             break

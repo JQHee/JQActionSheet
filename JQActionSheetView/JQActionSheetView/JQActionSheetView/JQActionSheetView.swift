@@ -7,26 +7,19 @@
 //
 
 import UIKit
-import SnapKit
-
-// 标题，取消按钮，高度
-private let KDEFAULTH: CGFloat = 50
-// 取消按钮的间隔
-private let KCANCLEBUTTONPADDING: CGFloat = 8
-// cell高度
-private let KCELLH: CGFloat = 50
-// cell推荐个数
-private let KCELLCOUNT: CGFloat = 4
-// 默认字体
-private let KDEFAULTFONT = UIFont.systemFont(ofSize: 16)
 
 public struct JQSelectViewInfo {
-    public var title: String
-    public var color: UIColor?
+    fileprivate var title: String
+    fileprivate var color: UIColor
+    fileprivate var font: UIFont
+    fileprivate var isTitle: Bool
     
-    public init(title: String, color: UIColor?) {
+    
+    public init(title: String, color: UIColor? = UIColor.black,font: UIFont? = UIFont.systemFont(ofSize: 14), isTitle: Bool? = false) {
         self.title = title
-        self.color = color
+        self.color = color!
+        self.font = font!
+        self.isTitle = isTitle!
     }
 }
 
@@ -34,70 +27,97 @@ fileprivate struct Action {
     static let tapBgViewOrCancel = #selector(JQActionSheetView.tapBgViewOrCancel)
 }
 
-class JQActionSheetView: UIView {
+public class JQActionSheetView: UIView {
     
-    var title: String?
-    var cancelTitle: JQSelectViewInfo?
-    var contentViewH: CGFloat!
-    var tableViewH: CGFloat!
-    var options: [JQSelectViewInfo]!
+    fileprivate var cancelTitle: JQSelectViewInfo?
+    fileprivate var options: [JQSelectViewInfo] = [JQSelectViewInfo]()
+    fileprivate var pView: UIView!
+    fileprivate var footerView: UIView = UIView.init()
+    fileprivate var selectCallBack: ((_ index: Int) -> Swift.Void)?
     
-    var selectCallBack: ((_ index: Int) -> Swift.Void)?
-    var cancelCallBack: (() -> Swift.Void)?
-    
-    
-    // MARK: - public methods
-    init(title: String? = "", options: [JQSelectViewInfo], cancelTitle: JQSelectViewInfo?, selectCallBack: ((_ index: Int) -> Swift.Void)?, cancelCallBack: (() -> Swift.Void)?) {
-        super.init(frame: UIScreen.main.bounds)
-        self.title = title
+    @discardableResult
+    convenience public init(view: UIView? = UIApplication.shared.windows.last, options: [JQSelectViewInfo], cancelTitle: JQSelectViewInfo?, selectCallBack: ((_ index: Int) -> Swift.Void)?) {
+        self.init(frame: view!.bounds)
+        view?.addSubview(self)
         self.options = options
         self.cancelTitle = cancelTitle
         self.selectCallBack = selectCallBack
-        self.cancelCallBack = cancelCallBack
-        
-        let count = CGFloat(options.count)
-        tableViewH = (count <= KCELLCOUNT ? count : 4) * KCELLH
-        contentViewH = KCANCLEBUTTONPADDING + CGFloat(tableViewH) + (title == nil ? KDEFAULTH : KDEFAULTH * 2)
-        setupView()
+        self.pView = view!
+        commitInit()
+        setupUI()
     }
     
-    class open func show(title: String? = "", options: [JQSelectViewInfo], cancelTitle: JQSelectViewInfo?, selectCallBack: ((_ index: Int) -> Swift.Void)?) {
-        JQActionSheetView(title: title, options: options, cancelTitle: cancelTitle, selectCallBack: selectCallBack, cancelCallBack: nil).showSelectView()
-    }
-    
-    class open func show(title: String?, options: [JQSelectViewInfo], cancelTitle: JQSelectViewInfo?, selectCallBack: ((_ index: Int) -> Swift.Void)?, cancelCallBack: (() -> Swift.Void)?) {
-        JQActionSheetView(title: title, options: options, cancelTitle: cancelTitle, selectCallBack: selectCallBack, cancelCallBack: cancelCallBack).showSelectView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        coverView.frame = frame
+        let height: Double = Double(self.options.count  * 40 + 45)
+        optionTableView.frame = CGRect.init(x: 0, y: Double(bounds.size.height) - height, width: Double(bounds.size.width), height: height)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - private methods
+    private func setupUI() {
+        addSubview(coverView)
+        addSubview(optionTableView)
+        setupTableViewFooterView()
+        showSelectView()
+        
+    }
+    
+    private func setupTableViewFooterView()  {
+        
+        let footerView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: bounds.size.width, height: 45.0))
+        footerView.backgroundColor = UIColor.init(red: 243/255.0, green: 244/255.0, blue: 245/255.0, alpha: 1.0)
+        
+        let cancelButton: UIButton = UIButton.init(type: .custom)
+        cancelButton.backgroundColor = UIColor.white
+        cancelButton.setTitle(self.cancelTitle?.title, for: .normal)
+        cancelButton.setTitleColor(self.cancelTitle?.color ?? UIColor.lightGray, for: .normal)
+        cancelButton.titleLabel?.font = self.cancelTitle?.font ?? UIFont.systemFont(ofSize: 14)
+        cancelButton.frame = CGRect.init(x: 0, y: 5, width: bounds.size.width, height: 40)
+        cancelButton.addTarget(self, action: Action.tapBgViewOrCancel, for: .touchUpInside)
+        footerView.addSubview(cancelButton)
+        optionTableView.tableFooterView = footerView
+    }
+    
+    private func commitInit() {
+        
+        registerNotificationCenter()
+    }
+    
+    private func registerNotificationCenter() {
+        
+        NotificationCenter.default.addObserver(self, selector:#selector(statusBarOrientationDidChange(notification:)) , name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
+    }
+    
+    @objc private func statusBarOrientationDidChange(notification: NSNotification) {
+        
+        guard let view = self.superview else { return }
+        frame = view.bounds
+        setupTableViewFooterView()
+    }
+    
     // MARK: - lazy load
     fileprivate lazy var coverView: UIView = {
         let view: UIView = UIView.init()
         view.frame = self.frame
-        view.backgroundColor = UIColor.init(white: 0, alpha: 0.5)
+        view.backgroundColor = UIColor.init(red: 0, green: 0, blue: 0, alpha: 0.5)
         view.alpha = 0
         let tap = UITapGestureRecognizer(target: self, action: Action.tapBgViewOrCancel)
         view.addGestureRecognizer(tap)
         return view
-    }()
-    
-    fileprivate lazy var contentView: UIView = {
-        let view: UIView = UIView.init()
-        view.frame = CGRect(x: 0, y: self.frame.height, width: self.frame.width, height: 0)
-        view.backgroundColor = UIColor.groupTableViewBackground
-        return view
-    }()
-    
-    fileprivate lazy var titleLabel: UILabel? = {
-        let label: UILabel = UILabel.init()
-        label.font = UIFont.systemFont(ofSize: 13)
-        label.backgroundColor = UIColor.white
-        label.textColor = UIColor.lightGray
-        label.textAlignment = .center
-        return label
     }()
     
     fileprivate lazy var optionTableView: UITableView = {
@@ -112,105 +132,32 @@ class JQActionSheetView: UIView {
         tableView.bounces = false
         return tableView
     }()
-    
-    fileprivate lazy var cancelButton: UIButton = {
-        let btn: UIButton = UIButton.init(type: UIButtonType.custom)
-        btn.titleLabel?.font = KDEFAULTFONT
-        btn.backgroundColor = UIColor.white
-        btn.addTarget(self, action: Action.tapBgViewOrCancel, for: .touchUpInside)
-        return btn
-    }()
-    
 }
 
-// MARK: - 初始化
 extension JQActionSheetView {
     
-    fileprivate func setupSubviewsFrames() {
-        
-        
-        coverView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-        
-        contentView.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(contentViewH)
-        }
-        
-        var isHasTitle: Bool = false
-        // 标题
-        if let title = title {
-            titleLabel?.text = title
-            contentView.addSubview(titleLabel!)
-            titleLabel?.snp.makeConstraints({ (make) in
-                make.top.left.right.equalToSuperview()
-                make.height.equalTo(KCELLH - 0.5)
-            })
-            isHasTitle = true
-        }
-        
-        optionTableView.snp.makeConstraints { (make) in
-            make.left.right.equalToSuperview()
-            make.top.equalTo(isHasTitle ? KDEFAULTH : 0)
-            make.height.equalTo(tableViewH)
-            
-        }
-        cancelButton.snp.makeConstraints { (make) in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(KDEFAULTH)
-        }
-    }
-    
-    fileprivate func setupView() {
-        // 设置背景
-        addSubview(coverView)
-        
-        // 内容
-        addSubview(contentView)
-        
-        // 设置选项列表
-        contentView.addSubview(optionTableView)
-        
-        contentView.addSubview(cancelButton)
-        
-        // 配置相关的属性
-        optionTableView.isScrollEnabled = CGFloat(options.count) > KCELLCOUNT
-        
-        cancelButton.setTitle(cancelTitle?.title ?? "取消", for: .normal)
-        cancelButton.setTitleColor(cancelTitle?.color ?? UIColor.darkGray, for: .normal)
-        
-        setupSubviewsFrames()
-    }
-    
-    
-    // 显示出来
+    // MARK: - event response
     fileprivate func showSelectView() {
         
-        UIApplication.shared.keyWindow?.addSubview(self)
-        self.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
             self.coverView.alpha = 1.0
-            self.contentView.transform = CGAffineTransform(translationX: 0, y: -self.contentView.bounds.height)
+            self.optionTableView.transform = CGAffineTransform(translationX: 0, y: -self.optionTableView.bounds.height)
         }, completion: nil)
     }
     
-    
-    // MARK: - event response
     @objc fileprivate func tapBgViewOrCancel() {
-        if cancelCallBack != nil {
-            cancelCallBack!()
+        
+        if selectCallBack != nil {
+            selectCallBack!(-1)
         }
         close()
     }
     
-    // 隐藏并移除
     @objc fileprivate func close() {
+        
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
             self.coverView.alpha = 0.0
-            self.contentView.transform = CGAffineTransform.identity
+            self.optionTableView.transform = CGAffineTransform.identity
         }, completion: { _ in
             self.removeFromSuperview()
         })
@@ -225,10 +172,11 @@ extension JQActionSheetView: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: String.init(describing: JQActionSheetCell.self), for: indexPath) as! JQActionSheetCell
+        cell.selectionStyle = .none
+        let jqSelectViewInfo: JQSelectViewInfo = options[indexPath.row]
         cell.titleLabel.text = options[indexPath.row].title
-        if let color = options[indexPath.row].color {
-            cell.titleLabel.textColor = color
-        }
+        cell.titleLabel.textColor = jqSelectViewInfo.color 
+        cell.titleLabel.font = jqSelectViewInfo.font 
         return cell
     }
 }
@@ -236,11 +184,12 @@ extension JQActionSheetView: UITableViewDataSource {
 extension JQActionSheetView: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return KCELLH
+        return 40
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        let jqSelectViewInfo: JQSelectViewInfo = options[indexPath.row]
+        if jqSelectViewInfo.isTitle {return}
         if selectCallBack != nil {
             selectCallBack!(indexPath.row)
         }
