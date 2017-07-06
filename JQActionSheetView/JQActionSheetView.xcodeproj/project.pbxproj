@@ -600,6 +600,7 @@
 				66CDCEC61EFEE1300029BE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66CDCEC71EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetViewTests" */ = {
 			isa = XCConfigurationList;
@@ -608,6 +609,7 @@
 				66CDCEC91EFEE1300029BE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66CDCECA1EFEE1300029BE0E /* Build configuration list for PBXNativeTarget "JQActionSheetViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -616,6 +618,7 @@
 				66CDCECC1EFEE1300029BE0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
