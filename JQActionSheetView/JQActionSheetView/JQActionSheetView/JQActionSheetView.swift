@@ -9,6 +9,7 @@
 import UIKit
 
 public struct JQSelectViewInfo {
+    
     fileprivate var title: String
     fileprivate var color: UIColor
     fileprivate var font: UIFont
@@ -76,7 +77,7 @@ public class JQActionSheetView: UIView {
         
     }
     
-    private func setupTableViewFooterView()  {
+    fileprivate func setupTableViewFooterView() {
         
         let footerView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: bounds.size.width, height: 45.0))
         footerView.backgroundColor = UIColor.init(red: 243/255.0, green: 244/255.0, blue: 245/255.0, alpha: 1.0)
@@ -84,8 +85,8 @@ public class JQActionSheetView: UIView {
         let cancelButton: UIButton = UIButton.init(type: .custom)
         cancelButton.backgroundColor = UIColor.white
         cancelButton.setTitle(self.cancelTitle?.title, for: .normal)
-        cancelButton.setTitleColor(self.cancelTitle?.color ?? UIColor.lightGray, for: .normal)
-        cancelButton.titleLabel?.font = self.cancelTitle?.font ?? UIFont.systemFont(ofSize: 14)
+        cancelButton.setTitleColor(self.cancelTitle?.color, for: .normal)
+        cancelButton.titleLabel?.font = self.cancelTitle?.font
         cancelButton.frame = CGRect.init(x: 0, y: 5, width: bounds.size.width, height: 40)
         cancelButton.addTarget(self, action: Action.tapBgViewOrCancel, for: .touchUpInside)
         footerView.addSubview(cancelButton)
@@ -102,13 +103,6 @@ public class JQActionSheetView: UIView {
         NotificationCenter.default.addObserver(self, selector:#selector(statusBarOrientationDidChange(notification:)) , name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation, object: nil)
     }
     
-    @objc private func statusBarOrientationDidChange(notification: NSNotification) {
-        
-        guard let view = self.superview else { return }
-        frame = view.bounds
-        setupTableViewFooterView()
-    }
-    
     // MARK: - lazy load
     fileprivate lazy var coverView: UIView = {
         let view: UIView = UIView.init()
@@ -122,7 +116,6 @@ public class JQActionSheetView: UIView {
     
     fileprivate lazy var optionTableView: UITableView = {
         let tableView: UITableView = UITableView.init(frame: CGRect.zero, style: .plain)
-        tableView.register(JQActionSheetCell.self, forCellReuseIdentifier: String.init(describing: JQActionSheetCell.self))
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.dataSource = self
@@ -130,6 +123,7 @@ public class JQActionSheetView: UIView {
         tableView.separatorInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorColor = UIColor.groupTableViewBackground
         tableView.bounces = false
+        tableView.register(JQActionSheetCell.self, forCellReuseIdentifier: String.init(describing: JQActionSheetCell.self))
         return tableView
     }()
 }
@@ -145,15 +139,7 @@ extension JQActionSheetView {
         }, completion: nil)
     }
     
-    @objc fileprivate func tapBgViewOrCancel() {
-        
-        if selectCallBack != nil {
-            selectCallBack!(-1)
-        }
-        close()
-    }
-    
-    @objc fileprivate func close() {
+    fileprivate func close() {
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.7, options: .curveEaseInOut, animations: {
             self.coverView.alpha = 0.0
@@ -162,11 +148,26 @@ extension JQActionSheetView {
             self.removeFromSuperview()
         })
     }
+    
+    @objc fileprivate func statusBarOrientationDidChange(notification: NSNotification) {
+        
+        guard let view = self.superview else { return }
+        frame = view.bounds
+        setupTableViewFooterView()
+    }
+    
+    @objc fileprivate func tapBgViewOrCancel() {
+        
+        if selectCallBack != nil {
+            selectCallBack!(-1)
+        }
+        close()
+    }
 }
 
 extension JQActionSheetView: UITableViewDataSource {
 
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return options.count
     }
     

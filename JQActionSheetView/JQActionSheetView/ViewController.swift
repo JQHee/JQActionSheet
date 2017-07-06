@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    fileprivate let datas: [String] = ["带取消按钮的回调","一般选择器样式","自定义样式"]
+    fileprivate let datas: [String] = ["自定义样式"]
     
     
     override func viewDidLoad() {
@@ -55,11 +55,6 @@ extension ViewController: UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            break
-        case 1:
-
-            break
-        case 2:
             let option1 = JQSelectViewInfo(title: "我是标题", color: UIColor.black, font: UIFont.systemFont(ofSize: 14), isTitle: true)
             let option2 = JQSelectViewInfo(title: "选择2", color: UIColor.orange, font: UIFont.systemFont(ofSize: 14))
             let option3 = JQSelectViewInfo(title: "选择3", color: UIColor.brown, font: UIFont.systemFont(ofSize: 14))
